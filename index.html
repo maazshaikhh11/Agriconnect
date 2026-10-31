@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agri-Connect | Sell your harvest straight to buyers</title>
+<meta name="description" content="Agri-Connect links farmers directly with buyers: live crop rates, direct offers and fair prices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>Agri-Connect</a>
+    <ul id="menu">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#calc">Earnings</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <a class="btn btn-solid btn-sm" href="#join">Get started</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Sell your harvest straight to the buyer.</h1>
+        <p class="lead">Agri-Connect lists your crop, shows today's rates and connects you with buyers who pay a fair price.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#join">Join as a farmer</a>
+          <a class="btn btn-line" href="#join">Find crops to buy</a>
+        </div>
+        <small>Free to list. You only pay a small fee when you sell.</small>
+      </div>
+
+      <aside class="board" aria-label="Today's crop rates">
+        <div class="board-head">
+          <h2>Today's rates</h2>
+          <span id="today"></span>
+        </div>
+        <table>
+          <thead><tr><th>Crop</th><th>₹ per quintal</th><th>Change</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p class="board-note">Sample figures. Connect a live mandi price API to show real rates.</p>
+      </aside>
+    </div>
+  </div>
+
+  
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>From field to payment in three steps</h2>
+        <p>No middlemen to chase and no waiting at the market gate.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>List your crop</h3><p>Add the crop, quantity and your expected price. It takes about two minutes.</p></div>
+        <div class="step"><div class="n">2</div><h3>Get direct offers</h3><p>Verified buyers see your listing and send offers. Chat, compare and pick the best one.</p></div>
+        <div class="step"><div class="n">3</div><h3>Deliver and get paid</h3><p>Agree on a pickup, hand over the harvest and receive payment straight to your bank account.</p></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="features" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Everything a farmer needs before selling</h2>
+        <p>Know the market, talk to buyers and plan your season from one place.</p>
+      </div>
+      <div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+          <div><h3>Live market rates</h3><p>See what your crop sells for today and how the price has moved this week.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>
+          <div><h3>Direct buyer chat</h3><p>Message buyers, negotiate and agree on terms without a go-between.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          <div><h3>Weather and crop advice</h3><p>Get a local forecast and simple tips on sowing, watering and harvest timing.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><h3>Verified buyers and safe payments</h3><p>Every buyer is checked, and payments go straight to your account.</p></div>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 4-3 7-7 8"/><path d="M13 21l4-10 4 10M14.5 18h5"/></svg>
+          <div><h3>In your language</h3><p>Use the app in English, Hindi or Marathi.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="calc" id="calc">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>See what you could earn</h2>
+        <p>Pick a crop and a quantity to compare selling through the usual market chain with selling direct.</p>
+      </div>
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label for="crop">Crop</label>
+            <select id="crop"></select>
+          </div>
+          <div class="field">
+            <label for="qty">Quantity</label>
+            <input type="range" id="qty" min="5" max="500" step="5" value="50">
+            <div class="qty-out"><span id="qtyOut">50</span> quintals</div>
+          </div>
+          <p class="fine" id="assume"></p>
+        </div>
+        <div class="compare" aria-live="polite">
+          <div class="res old"><span>Through the market chain</span><strong id="oldAmt">₹0</strong></div>
+          <div class="res new"><span>Direct on Agri-Connect</span><strong id="newAmt">₹0</strong></div>
+          <p class="gain" id="gain"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="join" id="join">
+    <div class="wrap box">
+      <div class="sec-head" style="margin-bottom:0">
+        <h2>Join Agri-Connect</h2>
+        <p>Tell us who you are and we will get in touch to set up your account.</p>
+        <ul class="checks">
+          <li>Free to list your crops</li>
+          <li>No hidden charges</li>
+          <li>Support in your language</li>
+        </ul>
+      </div>
+      <form id="joinForm" novalidate>
+        <div class="field" style="margin-bottom:1rem">
+          <label for="name">Full name</label>
+          <input type="text" id="name" autocomplete="name">
+          <div class="err" id="nameErr"></div>
+        </div>
+        <div class="field" style="margin-bottom:1rem">
+          <label for="phone">Mobile number</label>
+          <input type="tel" id="phone" inputmode="numeric" autocomplete="tel" placeholder="10-digit number">
+          <div class="err" id="phoneErr"></div>
+        </div>
+        <div class="field" style="margin-bottom:1.4rem">
+          <label for="role">I am a</label>
+          <select id="role"><option>Farmer</option><option>Buyer</option></select>
+        </div>
+        <button class="btn btn-solid" type="submit">Request access</button>
+        <div id="formMsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Agri-Connect. Built by Maaz Ahmad Shaikh.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
